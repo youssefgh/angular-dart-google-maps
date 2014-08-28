@@ -1,0 +1,1 @@
+library google_maps_angular;
