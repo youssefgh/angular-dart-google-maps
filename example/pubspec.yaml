@@ -1,0 +1,13 @@
+name: example
+version: 0.0.1
+description: A sample web application
+dependencies:
+  observe: any
+  angular: any
+  google_maps: any
+  google_maps_angular:
+    path: ../
+transformers:
+- angular
+ #   html_files:
+  #  - web/gmap.html

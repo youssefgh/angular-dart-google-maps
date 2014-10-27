@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example</title>
+</head>
+<body>
+	<h1>Example</h1>
+	<div style="height: 500px; width: 50%" center="center.latLng"
+		zoom="zoom" map-type-id="mapTypeId" bounds="bounds"
+		on_click="click($mouseEvent)" on_right_click="rightClick($mouseEvent)"
+		gmap></div>
+	<label>Center Lat</label>
+	<input type="number" ng-model="center.lat">
+	<label>Center Lng</label>
+	<input type="number" ng-model="center.lng">
+	<label>Zoom</label>
+	<input type="number" ng-model="zoom">
+	<br>
+	<label>Bounds {{bounds}}</label>
+
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script async type="application/dart" src="gmap.dart"></script>
+	<script async src="packages/browser/dart.js"></script>
+</body>
+</html>

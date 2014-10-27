@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example</title>
+</head>
+<body>
+	<div style="height: 500px; width: 50%" center="center.latLng"
+		zoom="zoom" map-type-id="mapTypeId" on_click="mapClick($mouseEvent)"
+		on_right_click="mapRightClick($mouseEvent)"
+		on_created=gmapCreated($gmap) gmap></div>
+	<div ng-repeat="latLngWrapper in markers" gmap=gmap
+		title=$index.toString() position=latLngWrapper draggable=false
+		on_right_click=rightClick($position) marker></div>
+	<div url="images/mario-icon.png" scaled-size=iconScaledSize
+		on_created=iconCreated($icon) icon></div>
+	<div ng-repeat="latLngWrapper in markersWithIcon" gmap=gmap
+		title=$index.toString() position=latLngWrapper draggable=true
+		on_right_click=rightClickWithIcon($position) icon=icon marker></div>
+	<div ng-if=!markersWithIcon.isEmpty>
+		<p>{{markersWithIcon.last.lat}}</p>
+		<p>{{markersWithIcon.last.lng}}</p>
+	</div>
+
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script async type="application/dart" src="marker.dart"></script>
+	<script async src="packages/browser/dart.js"></script>
+</body>
+</html>

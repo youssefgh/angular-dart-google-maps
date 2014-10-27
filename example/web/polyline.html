@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example</title>
+</head>
+<body>
+	<div style="height: 500px; width: 50%" center="center.latLng"
+		zoom="zoom" map-type-id="mapTypeId" on_click="mapClick($mouseEvent)"
+		on_created=gmapCreated($gmap) gmap></div>
+	<div gmap=gmap path=path stroke-color=#FFFFFF visible="path != null"
+		editable=true remove-point-on-rightclick=true
+		on_mouseover=mouseOver($polyMouseEvent)
+		on_mouseout=mouseOut($polyMouseEvent) polyline></div>
+	<div ng-repeat="path in paths" gmap=gmap path=path stroke-color=#555555
+		visible=true editable=true on_mouseover=mouseOver($polyMouseEvent)
+		on_mouseout=mouseOut($polyMouseEvent) polyline></div>
+	<div gmap=gmap content="content at {{infoWindowPosition}}"
+		position=infoWindowPosition info-window></div>
+
+	<input type="button" ng-click="create()" ng-diabled="selected != null"
+		value="Create">
+	<input type="button" ng-click="remove()" ng-diabled="selected != null"
+		value="Remove">
+	<input type="button" ng-click="save()" ng-diabled="selected == null"
+		value="Save">
+	<table ng-if="path != null" style="float: right;">
+		<tr>
+		<tr>Index
+		</tr>
+		<tr>Lat
+		</tr>
+		<tr>Lng
+		</tr>
+		</tr>
+		<tr ng-repeat="latLngWrapper in path">
+			<td>{{$index}}</td>
+			<!--    Not supported yet -->
+			<!-- 						<td><input type="number" ng-model="latLngWrapper.lat">{{latLngWrapper.lat}}</td> -->
+			<!-- 						<td><input type="number" ng-model="latLngWrapper.lng">{{latLngWrapper.lng}}</td> -->
+			<!-- 			<td><button>Remove</button></td> -->
+			<td>{{latLngWrapper.lat}}</td>
+			<td>{{latLngWrapper.lng}}</td>
+		</tr>
+	</table>
+
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script async type="application/dart" src="polyline.dart"></script>
+	<script async src="packages/browser/dart.js"></script>
+</body>
+</html>
