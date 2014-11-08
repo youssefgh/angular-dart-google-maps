@@ -1,8 +1,8 @@
-name: google-maps-angular
+name: google_maps_angular
 version: 0.0.1
 author: Youssef GHOUBACH
 description: A pub package for google maps for angular
 dev_dependencies:
-  observe: any
-  angular: any
+  angular: '>=1.0.0'
   google_maps: any
+  observe: any
