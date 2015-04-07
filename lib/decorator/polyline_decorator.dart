@@ -97,13 +97,15 @@ class PolylineDecorator implements AttachAware, DetachAware {
       _onInsertAt = _polyline.path.onInsertAt.listen(_insertAt);
       _onSetAt = _polyline.path.onSetAt.listen(_setAt);
       _onRemoveAt = _polyline.path.onRemoveAt.listen(_removeAt);
-      _pathChange = (records) {
-        records.forEach((record) {
+      _pathChange = (List<ListChangeRecord> records) {
+        records.forEach((ListChangeRecord record) {
           //Insert
           if (record.removed.isEmpty && record.addedCount > 0) {
             //print("insert");
             _onInsertAt.cancel();
-            _polyline.path.insertAt(record.index, _path[record.index].latLng);
+            for(int i = 0;i<record.addedCount;i++){
+              _polyline.path.insertAt(record.index+i, _path[record.index+i].latLng);  
+            }
             _onInsertAt = _polyline.path.onInsertAt.listen(_insertAt);
           }
           //Update
