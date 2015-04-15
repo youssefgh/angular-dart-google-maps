@@ -3,7 +3,6 @@ import 'package:angular/application_factory.dart';
 import 'package:google_maps_angular/google_maps_angular.dart';
 import 'package:google_maps/google_maps.dart';
 import 'package:observe/observe.dart';
-import 'package:observe/mirrors_used.dart';
 
 import 'dart:html' hide MouseEvent;
 

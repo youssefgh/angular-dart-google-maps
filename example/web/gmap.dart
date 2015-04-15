@@ -30,5 +30,17 @@ class RootContext {
   rightClick(MouseEvent e) {
     window.alert('RightClick at ' + e.latLng.toString());
   }
+  
+  GMap gmap;
+  GMap gmapx;
+
+
+  gmapCreated(GMap gmap) {
+    this.gmap = gmap;
+  }
+  
+  gmapCreatedx(GMap gmapx) {
+    this.gmapx = gmapx;
+  }
 
 }
