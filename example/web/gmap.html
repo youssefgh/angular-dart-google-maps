@@ -10,7 +10,12 @@
 	<div style="height: 500px; width: 50%" center="center.latLng"
 		zoom="zoom" map-type-id="mapTypeId" bounds="bounds"
 		on_click="click($mouseEvent)" on_right_click="rightClick($mouseEvent)"
-		gmap></div>
+		on_created=gmapCreated($gmap) gmap></div>
+		
+  <div style="height: 500px; width: 50%" center="center.latLng"
+    zoom="zoom" map-type-id="mapTypeId" bounds="bounds"
+    on_click="click($mouseEvent)" on_right_click="rightClick($mouseEvent)"
+    on_created=gmapCreated($gmap) gmap></div>
 	<label>Center Lat</label>
 	<input type="number" ng-model="center.lat">
 	<label>Center Lng</label>
