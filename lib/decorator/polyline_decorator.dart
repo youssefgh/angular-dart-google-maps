@@ -156,7 +156,7 @@ class PolylineDecorator implements AttachAware, DetachAware {
         "\$polyline": _polyline
       });
     });
-    _polyline.onDblClick.listen((e) {
+    _polyline.onDblclick.listen((e) {
       onDblClick({
         "\$latLngWrapper": _path.firstWhere((latLngWrapper) => e.latLng.lat == latLngWrapper.lat && e.latLng.lng == latLngWrapper.lng, orElse: () => null)
       });
